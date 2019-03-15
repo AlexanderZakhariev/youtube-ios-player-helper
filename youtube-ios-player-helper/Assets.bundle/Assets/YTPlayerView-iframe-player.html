@@ -54,6 +54,7 @@
              }
         }
         
+        document.getElementById("player").addEventListener('webkitfullscreenchange', onFullScreen)
         window.setInterval(getCurrentTime, 500);
              
     });
@@ -80,6 +81,14 @@
             error = true;
         }
         window.location.href = 'ytplayer://onError?data=' + event.data;
+    }
+    
+    function onFullScreen(e) {
+        var isFullscreenNow = document.webkitFullscreenElement !== null
+        
+        if(!isFullscreenNow){
+            player.stopVideo();
+        }
     }
     
     window.onresize = function() {
