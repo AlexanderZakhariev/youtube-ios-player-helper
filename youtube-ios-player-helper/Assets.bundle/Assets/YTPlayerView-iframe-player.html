@@ -87,6 +87,7 @@
         var isFullscreenNow = document.webkitFullscreenElement !== null
         
         if(!isFullscreenNow){
+            window.location.href = 'ytplayer://onStateChange?data=0';
             player.stopVideo();
         }
     }
